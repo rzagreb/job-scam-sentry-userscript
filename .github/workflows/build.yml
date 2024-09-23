@@ -1,0 +1,43 @@
+name: Build Job Scam Sentry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Ensure dist directory exists
+        run: |
+          mkdir -p dist
+
+      - name: Run build script
+        run: |
+          python src/build.py
+
+      - name: Check for changes
+        id: git_status
+        run: |
+          git add dist/job_scam_sentry.user.js
+          echo "::set-output name=changes_detected::$(git status --porcelain | wc -l)"
+
+      - name: Commit and push changes
+        if: steps.git_status.outputs.changes_detected != '0'
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git commit -m "Update userscript"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
