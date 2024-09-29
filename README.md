@@ -1,10 +1,10 @@
 # Job Scam Sentry
 
-**Job Scam Sentry** is a browser extension that helps job seekers identify and avoid fake job postings. By highlighting companies that repeatedly post fraudulent job listings, it empowers users to make informed decisions and protect themselves from scams.
+**Job Scam Sentry** is a browser extension that helps job seekers identify and avoid fake job postings by highlighting companies that repeatedly post fake jobs.
 
 ## Features
 
-- **Detect Fake Jobs:** Identifies and highlights companies that post duplicate job listings with identical titles and descriptions within 3 months.
+- **Detect Fake Jobs:** Identifies and highlights companies that post fake jobs within 3 months.
 - **Supported Platforms:** Compatible with major job boards for seamless integration into your job search.
   - [LinkedIn](https://www.linkedin.com)
   - [Glassdoor](https://www.glassdoor.com)
@@ -33,4 +33,4 @@ Once installed, it works automatically in the background:
 
 ## Additional Information
 
-- **Full List of Scam Companies:** Access the comprehensive list of flagged companies [here](https://github.com/rzagreb/job-scam-sentry-userscript/blob/main/src/companies.csv).
+- **Full List of Companies:** Access the comprehensive list of flagged companies [here](https://github.com/rzagreb/job-scam-sentry-userscript/blob/main/src/companies.csv).
